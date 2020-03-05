@@ -21,6 +21,15 @@ exports.getBySlug = (req, res, next) => {
       res.status(400).send(e);
     });
 };
+exports.getById = (req, res, next) => {
+  Product.findById(req.params.id) // Filtro por Id
+    .then(data => {
+      res.status(201).send(data);
+    })
+    .catch(e => {
+      res.status(400).send(e);
+    });
+};
 exports.post = (req, res, next) => {
   res.status(201).send(req.body);
 };
