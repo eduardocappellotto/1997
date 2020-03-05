@@ -30,6 +30,21 @@ exports.getById = (req, res, next) => {
       res.status(400).send(e);
     });
 };
+exports.getByTag = (req, res, next) => {
+  Product.find(
+    {
+      tags: req.params.tag, //filtro por tags
+      active: true
+    },
+    "title description price slug tags"
+  )
+    .then(data => {
+      res.status(201).send(data);
+    })
+    .catch(e => {
+      res.status(400).send(e);
+    });
+};
 exports.post = (req, res, next) => {
   res.status(201).send(req.body);
 };
