@@ -5,6 +5,7 @@ const app = express();
 const router = express.Router();
 
 // Carrega as Rotas
+{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false } )
 
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
