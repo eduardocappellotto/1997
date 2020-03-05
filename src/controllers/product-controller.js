@@ -1,5 +1,14 @@
 "use strict";
 
+exports.get = (req, res, next) => {
+  Product.find({ active: true }, "title price slug") // Filtro do que é encontrado, mostrado
+    .then(data => {
+      res.status(201).send(data);
+    })
+    .catch(e => {
+      res.status(400).send(e);
+    });
+};
 exports.post = (req, res, next) => {
   res.status(201).send(req.body);
 };
