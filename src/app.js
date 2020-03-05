@@ -15,6 +15,7 @@ mongoose.connect('mongodb+srv://edu123:edu123@cluster0-mipxi.mongodb.net/test?re
 
 const Product = require('./models/product');
 const Customer = require('./models/customer');
+const Order = require('./models/order');
 
 // Carrega as Rotas
 const indexRoute = require('./routes/index-route');
