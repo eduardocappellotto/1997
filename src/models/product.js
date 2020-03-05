@@ -12,14 +12,14 @@ const schema = new Schema({
     },
     slug: {          //Tênis nike = tenis-nike
         type: String,
-        required: true,
+        required: [true, 'O slug é obrigatório'],
         trim: true,
         index:true,
         unique:true
     },
     description: {
         type: String,
-        required: true
+        required: true, 
 
     },
     price:{
@@ -36,4 +36,6 @@ const schema = new Schema({
 
     }]
 
-})
+});
+
+module.exports = mongoose.model("Product", schema);

@@ -1,5 +1,8 @@
 "use strict";
 
+const mongoose = require("mongoose");
+const Product = mongoose.model("Product");
+
 exports.get = (req, res, next) => {
   Product.find({ active: true }, "title price slug") // Filtro do que é encontrado, mostrado
     .then(data => {
@@ -9,6 +12,7 @@ exports.get = (req, res, next) => {
       res.status(400).send(e);
     });
 };
+
 exports.getBySlug = (req, res, next) => {
   Product.findOne(
     { slug: req.params.slug, active: true },
@@ -21,6 +25,7 @@ exports.getBySlug = (req, res, next) => {
       res.status(400).send(e);
     });
 };
+
 exports.getById = (req, res, next) => {
   Product.findById(req.params.id) // Filtro por Id
     .then(data => {
@@ -30,6 +35,7 @@ exports.getById = (req, res, next) => {
       res.status(400).send(e);
     });
 };
+
 exports.getByTag = (req, res, next) => {
   Product.find(
     {
@@ -45,8 +51,8 @@ exports.getByTag = (req, res, next) => {
       res.status(400).send(e);
     });
 };
+
 exports.post = (req, res, next) => {
-  res.status(201).send(req.body);
   var product = new Product(req.body);
   product
     .save()
@@ -82,7 +88,6 @@ exports.put = (req, res, next) => {
 };
 
 exports.delete = (req, res, next) => {
-  res.status(200).send(req.body);
   Product
     .findOneAndDelete(req.body.id)
     .then(x => {
@@ -96,3 +101,4 @@ exports.delete = (req, res, next) => {
         .send({ message: "Falha ao remover o produto", data: e });
     });
 };
+
