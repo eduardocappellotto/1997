@@ -9,6 +9,18 @@ exports.get = (req, res, next) => {
       res.status(400).send(e);
     });
 };
+exports.getBySlug = (req, res, next) => {
+  Product.findOne(
+    { slug: req.params.slug, active: true },
+    "title description price slug tags"
+  ) // Filtro do que é encontrado, mostrado
+    .then(data => {
+      res.status(201).send(data);
+    })
+    .catch(e => {
+      res.status(400).send(e);
+    });
+};
 exports.post = (req, res, next) => {
   res.status(201).send(req.body);
 };
