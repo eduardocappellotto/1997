@@ -2,11 +2,11 @@
 
 const repository = require("../repositories/order-repository");
 const guid = require('guid');
-
+const authService = require('../services/auth-service');
 
 exports.get = async(req, res, next) => {
     try {
-        const data = await repository.get();
+        var data = await repository.get();
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({ message: "Falha ao processar sua requisição" });
@@ -16,10 +16,15 @@ exports.get = async(req, res, next) => {
 exports.post = async(req, res, next) => {
 
     try {
-        await repository.create({
+        //Recupera o token
+        const token = req.body.token || req.query.token || req.headers['x-access-token'];
 
-            customer: req.body.customer,
-            number: guid.raw.substring(0, 6),
+        //Decodifica o token
+        const data = await authService.decodeToken(token);
+
+        await repository.create({
+            customer: data.id,
+            number: guid.raw().substring(0, 6),
             items: req.body.items
         });
 
