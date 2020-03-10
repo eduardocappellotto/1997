@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'nodestrcappellotto'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9190c914f14041af9cdba364d8b4801e }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a2782b20cde14bc198adce1950883971 }}
         package: .
