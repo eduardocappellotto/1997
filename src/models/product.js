@@ -10,31 +10,36 @@ const schema = new Schema({
         required: true,
         trim: true
     },
-    slug: {          //Tênis nike = tenis-nike
+    slug: { //Tênis nike = tenis-nike
         type: String,
         required: [true, 'O slug é obrigatório'],
         trim: true,
-        index:true,
-        unique:true
+        index: true,
+        unique: true
     },
     description: {
         type: String,
-        required: true, 
+        required: true,
 
     },
-    price:{
+    price: {
         type: Number,
         required: true
     },
-    active:{
+    active: {
         type: Boolean,
         required: true
     },
-    tags:[{
+    tags: [{
         type: String,
         required: true
 
-    }]
+    }],
+    image: {
+        type: String,
+        required: true,
+        trim: true
+    }
 
 });
 
