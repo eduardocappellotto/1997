@@ -1,25 +1,25 @@
 {
-  "name": "1997",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@sendgrid/mail": "^6.5.4",
-    "azure-storage": "^2.10.3",
-    "body-parser": "^1.19.0",
-    "debug": "^4.1.1",
-    "express": "^4.17.1",
-    "guid": "0.0.12",
-    "http": "0.0.0",
-    "jsonwebtoken": "^8.5.1",
-    "md5": "^2.2.1",
-    "mongoose": "^5.9.3",
-    "sendgrid": "^5.2.3"
-  }
+    "name": "1997",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@sendgrid/mail": "^6.5.4",
+        "azure-storage": "^2.10.3",
+        "body-parser": "^1.19.0",
+        "debug": "^4.1.1",
+        "express": "^4.17.1",
+        "guid": "0.0.12",
+        "http": "0.0.0",
+        "jsonwebtoken": "^8.5.1",
+        "md5": "^2.2.1",
+        "mongoose": "^5.9.3",
+        "sendgrid": "^5.2.3"
+    }
 }
